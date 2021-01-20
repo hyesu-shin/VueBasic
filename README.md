@@ -17,10 +17,13 @@ npm run build
 
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
-## 프로젝트 초기 설정
+## Initial project setup
 
-```
-1. 반응형 웹 디자인 설정
-2. 어썸 아이콘 CSS설정
-3. 폰트와 파비콘 설정
-```
+## Creating and registering components
+
+<로컬 스토리지>
+1. do it 따라하기 - todo리스트 만들기, 항목 추가, 각 항목 삭제, 전체 삭제
+2. 항목 내용 업데이트 기능 추가
+3. 완료 여부 나타내는 기능 추가
+
+<쿠키>
