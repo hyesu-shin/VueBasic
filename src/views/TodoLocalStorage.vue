@@ -1,0 +1,66 @@
+<template>
+  <div id="app">
+    <TodoHeader></TodoHeader>
+    <TodoInput v-on:addTodo="addTodo"></TodoInput>
+    <TodoLists v-bind:propsdata="todoItems" v-on:removeTodo="removeTodo"></TodoLists>
+    <TodoFooter v-on:clearTodo="clearTodo"></TodoFooter>
+  </div>
+</template>
+
+<script>
+import TodoHeader from '../components/TodoHeader.vue'
+import TodoInput from '../components/TodoInput.vue'
+import TodoLists from '../components/TodoLists.vue'
+import TodoFooter from '../components/TodoFooter.vue'
+
+export default {
+  data() {
+    // 데이터 속성 todoItems를 선언
+    return {
+      todoItems: []
+    }
+  },
+  created() {
+        if(localStorage.length > 0) {
+            for (var i=0; i<localStorage.length; i++) {
+                this.todoItems.push(localStorage.key(i));
+            }
+        }
+    },
+  methods: {
+    addTodo(todoItem) {
+      // 로컬 스토리지에 데이터를 추가하는 로직
+      localStorage.setItem(todoItem, todoItem);
+      this.todoItems.push(todoItem);
+    },
+    clearTodo() {
+        localStorage.clear();
+        this.todoItems = [];
+    },
+    removeTodo(todoItem, index) {
+      localStorage.removeItem(todoItem);
+      this.todoItems.splic,e(index, 1);
+    },
+
+  },
+  components: {
+    'TodoHeader':TodoHeader,
+    'TodoInput':TodoInput,
+    'TodoLists':TodoLists,
+    'TodoFooter':TodoFooter
+  }
+}
+</script>
+
+<style>
+    body {
+        text-align:center;
+        background-color: #F6F6F8;
+    }
+    button {
+      border-style:groove;
+    }
+    .shadow {
+      box-shadow: 5px 10px 10px rgba(0,0,0,0.03);
+    }
+</style>

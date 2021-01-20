@@ -7,9 +7,13 @@
             <li v-for="(todoItem, index) in propsdata" :key="todoItem" class="shadow">
                 <i class="checkBtn fas fa-check" aria-hidden="true"></i>
                 {{todoItem}}
+                <!-- <span class="editBtn" type="button" @click="editTodo(todoItem, index)">
+                    <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+                </span> -->
                 <span class="removeBtn" type="button" @click="removeTodo(todoItem, index)">
                     <i class="far fa-trash-alt" aria-hidden="true"></i>
                 </span>
+                
             </li>
         </ul>
     </section>
@@ -23,7 +27,10 @@ export default {
     methods: {
         removeTodo(todoItem, index) {
             this.$emit('removeTodo', todoItem, index);
-        }
+        },
+        // editTodo(todoItem, index) {
+        //     this.$emit('editTodo', todoItem, index);
+        // }
     }
     
 }
@@ -52,7 +59,11 @@ export default {
         margin-right: 5px;
     }
     .removeBtn {
+        color: #de4343;
+    }
+    .editBtn {
         margin-left: auto;
+        padding-right: 10px;
         color: #de4343;
     }
 
