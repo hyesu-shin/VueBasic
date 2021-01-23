@@ -21,25 +21,25 @@ export default {
     }
   },
   created() {
-        if(localStorage.length > 0) {
-            for (var i=0; i<localStorage.length; i++) {
-                this.todoItems.push(localStorage.key(i));
-                // console.log(localStorage.key(i))
+        if(this.$cookies.keys().length > 0) {
+            for (var i=0; i<this.$cookies.keys().length; i++) {
+                this.todoItems.push(this.$cookies.keys()[i]);
+                // console.log(this.$cookies.keys()[i])
             }
         }
     },
   methods: {
     addTodo(todoItem) {
-      // 로컬 스토리지에 데이터를 추가하는 로직
-      localStorage.setItem(todoItem, todoItem);
+      // 쿠키에 데이터를 추가하는 로직
+      this.$cookies.set(todoItem, todoItem, 60);;
       this.todoItems.push(todoItem);
     },
     clearTodo() {
-        localStorage.clear();
+        this.$cookies.keys().forEach(cookie => this.$cookies.remove(cookie));
         this.todoItems = [];
     },
     removeTodo(todoItem, index) {
-      localStorage.removeItem(todoItem);
+      this.$cookies.remove(todoItem);
       this.todoItems.splice(index, 1);
     },
 
