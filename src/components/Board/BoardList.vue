@@ -34,7 +34,16 @@
 
         <!-- 페이징 처리
         <div class="pagination" v-if="paging.totalCount > 0">
-            
+            <a href="javascript:;" v-on="fnPage(1)" class="first"></a>
+            <a href="javascript:;" v-if="paging.start_page > 10" v-on="fnPage(`${paging.start_page-1}`)" class="prev"></a>
+            <template v-for="( n, index ) in paginavigation()">
+                <template v-if="paging.page==n">
+                    <strong :key="index">{{n}}</strong>
+                </template>
+            </template>
+            <a href="javascript:;" v-if="paging.total_page > paging.end_page" v-on="fnPage(`${paging.end_page+1}`)" class="next"></a>
+            <a href="javascript:;" v-on="fnPage(`${paging.total_page}`)" class="last"></a>
+
         </div> -->
 
         <div class="moveToWrap">
