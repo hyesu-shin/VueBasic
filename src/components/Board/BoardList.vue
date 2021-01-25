@@ -19,8 +19,9 @@
                     <th>날짜</th>
                 </tr>
                 <tr v-for="(boardItem, index) in boardItems" :key="index">
-                    <td>{{index}}</td>
                     <td>{{boardItem[1]}}</td>
+                    <!-- 게시글 제목 -> 상세페이지로 연결되는 링크 -->
+                    <td><a href="javascript:;" @click="viewDetail(index)">{{boardItem[1]}}</a></td>
                     <td>{{boardItem[2]}}</td>
                     <td>{{boardItem[3]}}</td>
                 </tr>
@@ -45,8 +46,11 @@ export default {
         if (localStorage.length > 0) {
             for (var i=0; i<localStorage.length; i++) {
                 var data = localStorage.getItem(i);
-                var jsonData = JSON.parse(data)
-                this.boardItems.push(jsonData);
+                var jsonData = JSON.parse(data);
+
+                if (jsonData !== null) {
+                    this.boardItems.push(jsonData);
+                }
             }
         }
 
@@ -67,7 +71,13 @@ export default {
 
     methods: {
         addNew() {
-            this.$router.push("./new");
+            this.$router.push("new");
+        },
+
+        viewDetail(index) {
+            // this.body.num = index;
+            // 게시판 리스트의 index를 id --> detail page로 이동
+            this.$router.push({ path: "detail", query: { id: index }});
         }
     }
     

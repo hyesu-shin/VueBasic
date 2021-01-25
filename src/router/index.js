@@ -7,6 +7,7 @@ import BoardLocalStorage from "../views/BoardLocalStorage.vue"
 
 import BoardList from "../components/Board/BoardList.vue"
 import BoardNew from "../components/Board/BoardNew.vue"
+import BoardDetail from "../components/Board/BoardDetail.vue"
 
 Vue.use(VueRouter);
 
@@ -33,11 +34,15 @@ const routes = [
         children: [
             {
                 path: 'list',
-                component: BoardList
+                component: BoardList,
             },
             {
                 path: 'new',
                 component: BoardNew
+            },
+            {
+                path: 'detail',
+                component: BoardDetail
             }
         ]
     }
