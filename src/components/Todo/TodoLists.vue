@@ -12,8 +12,7 @@
                 </span> -->
                 <span class="removeBtn" type="button" @click="removeTodo(todoItem, index)">
                     <i class="far fa-trash-alt" aria-hidden="true"></i>
-                </span>
-                
+                </span> 
             </li>
         </ul>
     </section>

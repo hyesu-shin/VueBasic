@@ -32,7 +32,7 @@ const routes = [
         component: BoardLocalStorage,
         children: [
             {
-                path: '/',
+                path: 'list',
                 component: BoardList
             },
             {

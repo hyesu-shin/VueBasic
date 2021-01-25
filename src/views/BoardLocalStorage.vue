@@ -10,7 +10,7 @@ import BoardHeader from '../components/Board/BoardHeader.vue'
 
 export default {
     components: {
-        'BoardHeader' : BoardHeader
+        'BoardHeader' : BoardHeader,
     }
 }
 </script>
